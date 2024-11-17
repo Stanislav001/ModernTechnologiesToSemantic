@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<carMarket year="2024">
+    <shortDescription>
+        Открийте следващото си превозно средство в най-добрия автокъща в България. Ние предлагаме разнообразна селекция от нови 
+        и употребявани автомобили, които отговарят на всяка нужда и бюджет. Нашият опитен персонал е посветен на предоставянето на 
+        изключително обслужване на клиентите и ви помага да намерите перфектния автомобил. Посетете нашия шоурум днес или разгледайте
+        нашия онлайн инвентар, за да започнете вашето шофиране.
+    </shortDescription>
+    <vehiclesStock>100</vehiclesStock>
+    <vehiclesSale>3500</vehiclesSale>
+    <happyClients>3000</happyClients>
+    <dealerReviews>100</dealerReviews>
+    
+    <dealer yearEstablished="1998">
+        <name>Auto World Ltd.</name>
+        <address>ул. Симеоновско шосе 45, София, България</address>
+        <phone>+359 111 222 333</phone>
+        <website>https://autoworld.bg</website>
+        <specialization>Продажба на нови и употребявани автомобили</specialization>
+
+        <inventory>
+            <car listingId="C001" yearManufactured="2021">
+                <make>BMW</make>
+                <model>3 Series</model>
+                <price>35 000</price>
+                <mileage>45000</mileage>
+                <fuelType>Бензин</fuelType>
+                <transmission>Автоматична</transmission>
+                <engineType>Бензин</engineType>
+                <mainPicture>https://images.ctfassets.net/c9t6u0qhbv9e/2021BMW3SeriesTestDriveReviewsummary/95042a4c746b62e17e8216d2c36ede20/2021_BMW_3_Series_Test_Drive_Review_summaryImage.jpeg</mainPicture>
+                <power>220</power>
+                <features>
+                    <feature>Кожени седалки</feature>
+                    <feature>Навигация</feature>
+                    <feature>Камера за обратно виждане</feature>
+                </features>
+                <dealer>
+                    <name>Иван Петров</name>
+                    <phone>+359 888 555 444</phone>
+                    <email>ivan.petrov@autoworld.bg</email>
+                </dealer>
+            </car>
+
+            <car listingId="C002" yearManufactured="2019">
+                <make>Audi</make>
+                <model>A4</model>
+                <price>28 000</price>
+                <mileage>67000</mileage>
+                <fuelType>Дизел</fuelType>
+                <transmission>Ръчна</transmission>
+                <engineType>Бензин</engineType>
+                <power>280</power>
+                <mainPicture>https://pictures.dealer.com/o/odanielaudiaoa/1820/7da659a15deccc7295f78e6e453de1f5x.jpg</mainPicture>
+                <features>
+                    <feature>Климатроник</feature>
+                    <feature>LED светлини</feature>
+                    <feature>Парктроник</feature>
+                </features>
+                <dealer>
+                    <name>Мария Георгиева</name>
+                    <phone>+359 888 666 777</phone>
+                    <email>maria.georgieva@autoworld.bg</email>
+                </dealer>
+            </car>
+            
+            <car listingId="C003" yearManufactured="2020">
+                <make>Mercedes-Benz</make>
+                <model>GLA</model>
+                <price>42 500</price>
+                <mileage>52000</mileage>
+                <fuelType>Хибрид</fuelType>
+                <transmission>Автоматична</transmission>
+                <engineType>Бензин</engineType>
+                <power>280</power>
+                <mainPicture>https://di-uploads-pod5.dealerinspire.com/waltersmercedesbenz/uploads/2019/11/2020-gla-suv.jpg</mainPicture>
+                <features>
+                    <feature>Панорамен покрив</feature>
+                    <feature>Асистент за паркиране</feature>
+                    <feature>Предупреждение за сблъсък</feature>
+                </features>
+                <dealer>
+                    <name>Петър Иванов</name>
+                    <phone>+359 888 777 888</phone>
+                    <email>peter.ivanov@autoworld.bg</email>
+                </dealer>
+            </car>
+        </inventory>
+    </dealer>
+
+    <dealer yearEstablished="2005">
+        <name>Car Deal Bulgaria</name>
+        <address>ул. Черни връх 120, Пловдив, България</address>
+        <phone>+359 222 333 444</phone>
+        <website>https://cardeal.bg</website>
+        <specialization>Продажба на луксозни автомобили</specialization>
+
+        <inventory>
+            <car listingId="C101" yearManufactured="2022">
+                <make>Jaguar</make>
+                <model>XF</model>
+                <price>65 000</price>
+                <mileage>12000</mileage>
+                <fuelType>Бензин</fuelType>
+                <transmission>Автоматична</transmission>
+                <mainPicture>https://www.motortrend.com/uploads/2021/11/2022-Jaguar-XF-R-Dynamic_Black_Front_3-4_250821.jpg</mainPicture>
+                <engineType>Бензин</engineType>
+                <power>240</power>
+                <features>
+                    <feature>Кожен салон</feature>
+                    <feature>Навигация</feature>
+                    <feature>Парктроник</feature>
+                </features>
+                <dealer>
+                    <name>Георги Тодоров</name>
+                    <phone>+359 222 111 555</phone>
+                    <email>georgi.todorov@cardeal.bg</email>
+                </dealer>
+            </car>
+
+            <car listingId="C102" yearManufactured="2023">
+                <make>Land Rover</make>
+                <model>Range Rover Evoque</model>
+                <price>80 000</price>
+                <mileage>5000</mileage>
+                <fuelType>Хибрид</fuelType>
+                <transmission>Автоматична</transmission>
+                <mainPicture>https://di-uploads-pod46.dealerinspire.com/landrovernaperville/uploads/2022/09/Range-Rover-Evoque_879X518.jpg</mainPicture>
+                <engineType>Дизел</engineType>
+                <power>120</power>
+                <features>
+                    <feature>4x4 задвижване</feature>
+                    <feature>Подгряване на седалките</feature>
+                    <feature>Панорамен покрив</feature>
+                </features>
+                <dealer>
+                    <name>Росица Димитрова</name>
+                    <phone>+359 222 444 666</phone>
+                    <email>rositsa.dimitrova@cardeal.bg</email>
+                </dealer>
+            </car>
+
+            <car listingId="C103" yearManufactured="2018">
+                <make>Volvo</make>
+                <model>XC60</model>
+                <price>50 000</price>
+                <mileage>75000</mileage>
+                <fuelType>Дизел</fuelType>
+                <transmission>Ръчна</transmission>
+                <mainPicture>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGTcYRVccOjSFaFKMDlqKy4xB0Zh_DMUIxYQ</mainPicture>
+                <engineType>Бензин</engineType>
+                <power>110</power>
+                <features>
+                    <feature>Асистент за шофиране</feature>
+                    <feature>Камера за обратно виждане</feature>
+                    <feature>LED светлини</feature>
+                </features>
+                <dealer>
+                    <name>Борислав Георгиев</name>
+                    <phone>+359 222 555 777</phone>
+                    <email>borislav.georgiev@cardeal.bg</email>
+                </dealer>
+            </car>
+        </inventory>
+    </dealer>
+
+    <dealer yearEstablished="2010">
+        <name>Luxury Cars Sofia</name>
+        <address>бул. България 75, София, България</address>
+        <phone>+359 333 444 555</phone>
+        <website>https://luxurycars.bg</website>
+        <specialization>Продажба на спортни автомобили</specialization>
+
+        <inventory>
+            <car listingId="C201" yearManufactured="2023">
+                <make>Porsche</make>
+                <model>911 Carrera</model>
+                <price>150 000</price>
+                <mileage>1000</mileage>
+                <fuelType>Бензин</fuelType>
+                <transmission>Автоматична</transmission>ю
+                <mainPicture>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThWdsoJ3UhtktWk0yvCfuLTu-s6vrmJWpiTg</mainPicture>
+                <engineType>Бензин</engineType>
+                <power>580</power>
+                <features>
+                    <feature>Карбонов интериор</feature>
+                    <feature>Навигация</feature>
+                    <feature>Кожен салон</feature>
+                </features>
+                <dealer>
+                    <name>Симеон Колев</name>
+                    <phone>+359 333 222 444</phone>
+                    <email>simeon.kolev@luxurycars.bg</email>
+                </dealer>
+            </car>
+
+            <car listingId="C202" yearManufactured="2021">
+                <make>Lamborghini</make>
+                <model>Urus</model>
+                <price>250 000</price>
+                <mileage>2000</mileage>
+                <fuelType>Бензин</fuelType>
+                <transmission>Автоматична</transmission>
+                <mainPicture>https://hips.hearstapps.com/hmg-prod/images/2021-lamborghini-urus-mmp-1-1592423712.jpg</mainPicture>
+                <engineType>Бензин</engineType>
+                <power>700</power>
+                <features>
+                    <feature>4x4 задвижване</feature>
+                    <feature>Подгряване на волана</feature>
+                    <feature>Камера за обратно виждане</feature>
+                </features>
+                <dealer>
+                    <name>Мария Илиева</name>
+                    <phone>+359 333 555 666</phone>
+                    <email>maria.ilieva@luxurycars.bg</email>
+                </dealer>
+            </car>
+        </inventory>
+    </dealer>
+
+    <recommendedCars>
+        <recommendedCar listingId="C201" yearManufactured="2023">
+            <make>Porsche</make>
+            <model>911 Carrera</model>
+            <price>150 000</price>
+            <mileage>1000</mileage>
+            <fuelType>Бензин</fuelType>
+            <transmission>Автоматична</transmission>ю
+            <mainPicture>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThWdsoJ3UhtktWk0yvCfuLTu-s6vrmJWpiTg</mainPicture>
+            <engineType>Бензин</engineType>
+            <power>580</power>
+            <features>
+                <feature>Карбонов интериор</feature>
+                <feature>Навигация</feature>
+                <feature>Кожен салон</feature>
+            </features>
+            <dealer>
+                <name>Симеон Колев</name>
+                <phone>+359 333 222 444</phone>
+                <email>simeon.kolev@luxurycars.bg</email>
+            </dealer>
+        </recommendedCar>
+
+        <recommendedCar listingId="C202" yearManufactured="2021">
+            <make>Lamborghini</make>
+            <model>Urus</model>
+            <price>250 000</price>
+            <mileage>2000</mileage>
+            <fuelType>Бензин</fuelType>
+            <transmission>Автоматична</transmission>
+            <mainPicture>https://hips.hearstapps.com/hmg-prod/images/2021-lamborghini-urus-mmp-1-1592423712.jpg</mainPicture>
+            <engineType>Бензин</engineType>
+            <power>700</power>
+            <features>
+                <feature>4x4 задвижване</feature>
+                <feature>Подгряване на волана</feature>
+                <feature>Камера за обратно виждане</feature>
+            </features>
+            <dealer>
+                <name>Мария Илиева</name>
+                <phone>+359 333 555 666</phone>
+                <email>maria.ilieva@luxurycars.bg</email>
+            </dealer>
+        </recommendedCar>
+
+        <recommendedCar listingId="C102" yearManufactured="2023">
+            <make>Land Rover</make>
+            <model>Range Rover Evoque</model>
+            <price>80 000</price>
+            <mileage>5000</mileage>
+            <fuelType>Хибрид</fuelType>
+            <transmission>Автоматична</transmission>
+            <mainPicture>https://di-uploads-pod46.dealerinspire.com/landrovernaperville/uploads/2022/09/Range-Rover-Evoque_879X518.jpg</mainPicture>
+            <engineType>Дизел</engineType>
+            <power>120</power>
+            <features>
+                <feature>4x4 задвижване</feature>
+                <feature>Подгряване на седалките</feature>
+                <feature>Панорамен покрив</feature>
+            </features>
+            <dealer>
+                <name>Росица Димитрова</name>
+                <phone>+359 222 444 666</phone>
+                <email>rositsa.dimitrova@cardeal.bg</email>
+            </dealer>
+        </recommendedCar>
+    </recommendedCars>
+</carMarket>

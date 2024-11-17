@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Stas Dealership">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stas Dealership</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/cars.css" type="text/css">
+</head>
+
+<body>
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__logo">
+            <!-- <a href="./index.html"><img src="img/logo.png" alt=""></a> -->
+            <h3>Stas Dealership</h3>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <h6 class="hero__text__title">Stas Dealership</h6>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__nav">
+                        <nav class="header__menu">
+                            <ul>
+                                <li><a href="./index.html">Начало</a></li>
+                                <li class="active"><a href="./cars.html">Предложения</a></li>
+                                <li><a href="./about.html">За нас</a></li>
+                                <li><a href="./contact.html">Контакти</a></li>
+                                <li><a href="./math.html">MathML</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <span class="fa fa-bars"></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb-option set-bg" data-setbg="img/breadcrumb-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Налични автомобили</h2>
+                        <div class="breadcrumb__links">
+                            <a href="./index.html"><i class="fa fa-home"></i> Начало</a>
+                            <span>Налични автомобили</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row car-filter" id="car-list">
+    </div>
+
+    <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+        <div class="container">
+            <div class="footer__contact">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__contact__title">
+                            <h2>Свържете се с нас!</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__contact__option">
+                            <div class="option__item"><i class="fa fa-phone"></i> 0898 43 565</div>
+                            <div class="option__item email"><i class="fa fa-envelope-o"></i> stas@gmail.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__copyright__text">
+                <p>Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script>
+                    Всички права са запазени!
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        function fetchCars() {
+            fetch('../data.xml')
+                .then(response => response.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(data, "text/xml");
+
+                    const cars = xmlDoc.getElementsByTagName("car");
+                    const carCardsContainer = document.getElementById("car-list");
+
+                    Array.from(cars).forEach(car => {
+                        const listingId = car.getAttribute("listingId");
+                        const yearManufactured = car.getAttribute("yearManufactured");
+                        const make = car.getElementsByTagName('make')[0]?.textContent || "Unknown";
+                        const model = car.getElementsByTagName('model')[0]?.textContent || "Unknown";
+                        const price = car.getElementsByTagName('price')[0]?.textContent || "Not Available";
+                        const mileage = car.getElementsByTagName('mileage')[0]?.textContent || "Not Available";
+                        const fuelType = car.getElementsByTagName('fuelType')[0]?.textContent || "Not Available";
+                        const transmission = car.getElementsByTagName('transmission')[0]?.textContent || "Not Available";
+                        const mainPicture = car.getElementsByTagName('mainPicture')[0]?.textContent ?? "";
+                        const engineType = car.getElementsByTagName('engineType')[0]?.textContent ?? "Not Available";
+                        const horsePower = car.getElementsByTagName('power')[0]?.textContent ?? "Not Available";
+
+                        const carCardHTML = createCarCard(yearManufactured, make, model, price, mileage, fuelType, transmission, mainPicture, engineType, horsePower);
+
+                        carCardsContainer.insertAdjacentHTML('beforeend', carCardHTML);
+                    });
+                })
+                .catch(error => console.error('Error fetching or parsing the XML:', error));
+        }
+
+        function createCarCard(yearManufactured, make, model, price, mileage, fuelType, transmission, mainPicture, engineType, horsePower, newOrUsed = "0") {
+
+            return `
+            <div class="col-12 col-sm-6 col-lg-4 py-3">
+            <div class="card-wrap">
+
+                <div class="offer-card">
+                    <img class="img-fluid offer-card-image" src="${mainPicture}">
+
+                    <div class="offer-card-title px-1 pt-2 px-4 d-flex align-items-top justify-content-between">
+                        <div class="offer-card-title pt-2 d-flex align-items-center my-2 my-lg-0 me-lg-auto">
+                                <h5 class="text-break">${make} ${model} ${yearManufactured} year</h5>
+                        </div>
+                        <div class="offer-card-price">
+                            <div class="text-white pe-3 py-2 text-end float-end" style="background: #d35400; text-align:end;">
+                                <div class="fs-4 fw-normal">${price} лв.</div>
+                                <div class="price-vat-label fs-6">с ДДС/мес</div>
+                                <div class="price-period-label fs-9" style="color:white; font-size:0.7rem;">средно за периода</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="specs-list px-1 py-1 px-4">
+                        <div class="py-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="0 0 62 62">
+                                <path d="M50,978.206a30.968,30.968,0,0,1,25.688,48.313l-3.125-2.469a27,27,0,1,0-45.125,0l-3.125,2.469A30.968,30.968,0,0,1,50,978.206ZM32.313,997.518l21.219,14.156a4.994,4.994,0,0,1-7.062,7.062L32.313,997.518Z" transform="translate(-19 -978.206)"/>
+                            </svg>
+                            <span class="ps-1 text-dgray">Пробег: ${mileage} км.</span>
+                        </div>
+                        
+                        <div class="py-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+                                <path d="M88.43,32.506l3.557-2.534C86.633,17.089,76.426,7.418,63.973,4.313v6.318c0,0,1.125,0.523,1.672,0.813 c8.197,4.334,13.879,12.624,14.787,21.868l2.951,38.615l0.002,0.17c0,3.146-2.561,5.708-5.709,5.708s-5.711-2.563-5.711-5.708 v-22.08c0-6.974-5.24-12.738-11.99-13.585V12.903c0-4.396-3.598-7.994-7.994-7.994H20.005c-4.396,0-7.994,3.598-7.994,7.994v74.228 H8.015v7.994h11.99H51.98h11.992v-7.994h-3.998V44.6c2.309,0.73,3.998,2.869,3.998,5.417v22.08c0,7.555,6.146,13.703,13.703,13.703 c7.555,0,13.703-6.148,13.703-13.703c0-0.174-0.002-0.345-0.008-0.517L88.43,32.506z M20.005,12.903H51.98v23.268H20.005V12.903z"></path>
+                            </svg>
+                            <span class="ps-1 text-dgray">Тип двигател: ${engineType}</span>
+                        </div>
+
+                        <div class="py-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-[#6C6C6C]" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve"><g><g><path d="M50,2.9C24,2.9,2.9,24,2.9,50S24,97.1,50,97.1S97.1,76,97.1,50S76,2.9,50,2.9z M73.9,52.3    c0,1.7-1.4,3.1-3.1,3.1H52.3v13.9c0,1.7-1.4,3.1-3.1,3.1c-1.7,0-3.1-1.4-3.1-3.1V55.4H32.2v13.9c0,1.7-1.4,3.1-3.1,3.1    s-3.1-1.4-3.1-3.1V30.7c0-1.7,1.4-3.1,3.1-3.1s3.1,1.4,3.1,3.1v18.5h13.9V30.7c0-1.7,1.4-3.1,3.1-3.1c1.7,0,3.1,1.4,3.1,3.1v18.5    h15.4V30.7c0-1.7,1.4-3.1,3.1-3.1s3.1,1.4,3.1,3.1V52.3z"></path></g></g></svg>
+                            
+                            <span class="ps-1 text-dgray">Скоростна кутия: ${transmission}</span>
+                        </div>
+
+                        <div class="py-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-[#6C6C6C]" viewBox="0 0 48 48" x="0px" y="0px"><title>Chess horse</title><g data-name="Chess horse"><path d="M37,43H11a2,2,0,0,0-2,2v2H39V45A2,2,0,0,0,37,43Z"></path><path d="M14,39a2,2,0,0,0-2,2H36a2,2,0,0,0-2-2Z"></path><path d="M22,18c-.72,5-5.06,9-7.44,10.89C12.63,30.39,13,32.35,13,35a3.55,3.55,0,0,1,1.77,2H33.23c.61-1.74,2-2.09,4.57-3.4l-4.17-1.67a1,1,0,0,1,.74-1.86L39,31.91,38.88,30l-5.25-2.1a1,1,0,0,1,.74-1.86l4.43,1.78L38.72,26l-5.09-2a1,1,0,0,1,.74-1.86l4.26,1.7-.07-1.87-4.93-2a1,1,0,0,1,.74-1.86l4.1,1.64a15.88,15.88,0,0,0-.14-1.9l-4.7-1.88a1,1,0,0,1,.74-1.86l3.41,1.36A13.93,13.93,0,0,0,27,6a11.88,11.88,0,0,0-7-5l1,5a8.34,8.34,0,0,0-7.9,5.69c-.14.44.48-.27-4.1,4.31l3,4Zm-3.71-7.71A1,1,0,0,1,20,11a1,1,0,0,1-1,1A1,1,0,0,1,18.29,10.29Z"></path></g></svg>
+                        
+                        <span class="ps-1 text-dgray">Мощност: ${horsePower} к.с. </span>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>`;
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            fetchCars();
+        });
+    </script>
+</body>
+
+</html>

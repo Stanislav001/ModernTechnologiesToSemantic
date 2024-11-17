@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Stas Dealership">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stas Dealership</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/cars.css" type="text/css">
+</head>
+
+<body>
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__logo">
+            <!-- <a href="./index.html"><img src="img/logo.png" alt=""></a> -->
+            <h3>Stas Dealership</h3>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <h6 class="hero__text__title">Stas Dealership</h6>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="header__nav">
+                        <nav class="header__menu">
+                            <ul>
+                                <li><a href="./index.html">Начало</a></li>
+                                <li><a href="./cars.html">Предложения</a></li>
+                                <li><a href="./about.html">За нас</a></li>
+                                <li><a href="./contact.html">Контакти</a></li>
+                                <li><a href="./math.html">MathML</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="canvas__open">
+                <span class="fa fa-bars"></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="breadcrumb-option set-bg" data-setbg="img/breadcrumb-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h2>Резултати от търсенето</h2>
+                        <div class="breadcrumb__links">
+                            <a href="./index.html"><i class="fa fa-home"></i> Начало</a>
+                            <span>резултати от търсенето</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div id="search-results"></div>
+    </div>
+
+    <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+        <div class="container">
+            <div class="footer__contact">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__contact__title">
+                            <h2>Свържете се с нас!</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__contact__option">
+                            <div class="option__item"><i class="fa fa-phone"></i> 0898 43 565</div>
+                            <div class="option__item email"><i class="fa fa-envelope-o"></i> stas@gmail.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer__copyright__text">
+                <p>Copyright &copy;
+                    <script>document.write(new Date().getFullYear());</script>
+                    Всички права са запазени!
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                year: params.get('year'),
+                make: params.get('make'),
+                model: params.get('model'),
+                engine: params.get('engine'),
+                price: params.get('price')
+            };
+        }
+
+        function loadXMLDoc(filename) {
+            let xhttp = new XMLHttpRequest();
+            xhttp.open("GET", filename, false);
+            xhttp.send();
+            return xhttp.responseXML;
+        }
+
+        function displayResults() {
+            const params = getQueryParams();
+            const xml = loadXMLDoc("../data.xml");
+            const xsl = loadXMLDoc("../carsFilter.xsl");
+
+            if (window.XSLTProcessor) {
+                const xsltProcessor = new XSLTProcessor();
+                xsltProcessor.importStylesheet(xsl);
+
+                const priceRange = getPriceRange();
+
+                xsltProcessor.setParameter(null, 'year', params.year);
+                xsltProcessor.setParameter(null, 'make', params.make);
+                xsltProcessor.setParameter(null, 'model', params.model);
+                xsltProcessor.setParameter(null, 'engine', params.engine);
+                xsltProcessor.setParameter(null, 'price', params.price);
+                xsltProcessor.setParameter(null, 'minPrice', priceRange.min);
+                xsltProcessor.setParameter(null, 'maxPrice', priceRange.max);
+
+                const resultDocument = xsltProcessor.transformToFragment(xml, document);
+                document.getElementById("search-results").appendChild(resultDocument);
+            } else {
+                document.getElementById("search-results").innerHTML = "Вашият браузър не поддържа XSLT.";
+            }
+        }
+
+        function getPriceRange() {
+            let urlParams = new URLSearchParams(window.location.search);
+            let priceParam = urlParams.get("price");
+
+            if (priceParam) {
+                const cleanedPrice = priceParam.replace('$', '').replace(' - ', 'to').trim();
+
+                let priceParts = cleanedPrice.split('to');
+                priceParts = priceParts.map(price => price.replace('$', ''));
+
+                if (priceParts.length === 2) {
+                    let minPrice = parseInt(priceParts[0].trim());
+                    let maxPrice = parseInt(priceParts[1].trim());
+
+                    return { min: minPrice, max: maxPrice };
+                }
+            }
+
+            return { min: 0, max: 0 };
+        }
+        displayResults();
+    </script>
+</body>
+
+</html>

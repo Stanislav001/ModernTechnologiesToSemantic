@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:carMarket="http://www.example.com/carMarket" targetNamespace="http://www.example.com/carMarket" elementFormDefault="qualified">
+
+    <xs:element name="carMarket">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="shortDescription" type="xs:string" />
+                <xs:element name="vehiclesStock" type="xs:positiveInteger" />
+                <xs:element name="vehiclesSale" type="xs:positiveInteger" />
+                <xs:element name="happyClients" type="xs:positiveInteger" />
+                <xs:element name="dealerReviews" type="xs:positiveInteger" />
+                <xs:element name="dealer" maxOccurs="3" minOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string" />
+                            <xs:element name="address" type="xs:string" />
+                            <xs:element name="phone" type="xs:string" />
+                            <xs:element name="website" type="xs:anyURI" />
+                            <xs:element name="specialization" type="xs:string" />
+                            <xs:element name="inventory">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="car" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="make" type="carMarket:brandType" />
+                                                    <xs:element name="model" type="carMarket:modelType" />
+                                                    <xs:element name="price" type="xs:positiveInteger" />
+                                                    <xs:element name="mileage" type="xs:positiveInteger" />
+                                                    <xs:element name="fuelType" type="xs:string" />
+                                                    <xs:element name="transmission" type="xs:string" />
+                                                    <xs:element name="engineType" type="xs:string" minOccurs="0" />
+                                                    <xs:element name="mainPicture" type="xs:anyURI" minOccurs="0" />
+                                                    <xs:element name="power" type="xs:string" minOccurs="0" />
+                                                    <xs:element name="features" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="feature" type="xs:string" maxOccurs="unbounded" />
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="carDealer" minOccurs="0">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="name" type="xs:string" />
+                                                                <xs:element name="phone" type="xs:string" />
+                                                                <xs:element name="email" type="xs:string" />
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="listingId" type="xs:string" use="required" />
+                                                <xs:attribute name="yearManufactured" type="xs:positiveInteger" use="required" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="yearEstablished" type="xs:positiveInteger" use="required" />
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="recommendedCars">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="recommendedCar" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="make" type="carMarket:brandType" />
+                                        <xs:element name="model" type="carMarket:modelType" />
+                                        <xs:element name="price" type="xs:positiveInteger" />
+                                        <xs:element name="mileage" type="xs:positiveInteger" />
+                                        <xs:element name="fuelType" type="xs:string" />
+                                        <xs:element name="transmission" type="xs:string" />
+                                        <xs:element name="engineType" type="xs:string" minOccurs="0" />
+                                        <xs:element name="mainPicture" type="xs:anyURI" minOccurs="0" />
+                                        <xs:element name="power" type="xs:string" minOccurs="0" />
+                                        <xs:element name="features" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="feature" type="xs:string" maxOccurs="unbounded" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="carDealer" minOccurs="0">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="name" type="xs:string" />
+                                                    <xs:element name="phone" type="xs:string" />
+                                                    <xs:element name="email" type="xs:string" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="listingId" type="xs:string" use="required" />
+                                    <xs:attribute name="yearManufactured" type="xs:positiveInteger" use="required" />
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="year" type="xs:positiveInteger" use="required" />
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Custom Data Types -->
+    <xs:simpleType name="brandType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="modelType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

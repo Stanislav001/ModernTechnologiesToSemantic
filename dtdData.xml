@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE carMarket [
+    <!ELEMENT carMarket (shortDescription, vehiclesStock, vehiclesSale, happyClients, dealerReviews, dealer+, recommendedCars)>
+    <!ATTLIST carMarket year CDATA #REQUIRED>
+    
+    <!ELEMENT shortDescription (#PCDATA)>
+    <!ELEMENT vehiclesStock (#PCDATA)>
+    <!ELEMENT vehiclesSale (#PCDATA)>
+    <!ELEMENT happyClients (#PCDATA)>
+    <!ELEMENT dealerReviews (#PCDATA)>
+    
+    <!ELEMENT dealer (name, address, phone, website, specialization, inventory)>
+    <!ATTLIST dealer yearEstablished CDATA #REQUIRED>
+    
+    <!ELEMENT name (#PCDATA)>
+    <!ELEMENT address (#PCDATA)>
+    <!ELEMENT phone (#PCDATA)>
+    <!ELEMENT website (#PCDATA)>
+    <!ELEMENT specialization (#PCDATA)>
+    
+    <!ELEMENT inventory (car+)>
+    <!ELEMENT car (make, model, price, mileage, fuelType, transmission, engineType?, mainPicture?, power?, features?, carDealer?)>
+    <!ATTLIST car 
+        listingId CDATA #REQUIRED
+        yearManufactured CDATA #REQUIRED>
+    
+    <!ELEMENT make (#PCDATA)>
+    <!ELEMENT model (#PCDATA)>
+    <!ELEMENT price (#PCDATA)>
+    <!ELEMENT mileage (#PCDATA)>
+    <!ELEMENT fuelType (#PCDATA)>
+    <!ELEMENT transmission (#PCDATA)>
+    <!ELEMENT engineType (#PCDATA)>
+    <!ELEMENT mainPicture (#PCDATA)>
+    <!ELEMENT power (#PCDATA)>
+    <!ELEMENT features (feature+)>
+    <!ELEMENT feature (#PCDATA)>
+    <!ELEMENT carDealer (name, phone, email)>
+    <!ELEMENT email (#PCDATA)>
+    
+    <!ELEMENT recommendedCars (recommendedCar+)>
+    <!ELEMENT recommendedCar (make, model, price, mileage, fuelType, transmission, engineType?, mainPicture?, power?, features?, carDealer?)>
+    <!ATTLIST recommendedCar 
+        listingId CDATA #REQUIRED
+        yearManufactured CDATA #REQUIRED>
+]>
+<carMarket year="2024">
+    <shortDescription>
+        Открийте следващото си превозно средство в най-добрия автокъща в България.
+    </shortDescription>
+    <vehiclesStock>100</vehiclesStock>
+    <vehiclesSale>3500</vehiclesSale>
+    <happyClients>3000</happyClients>
+    <dealerReviews>100</dealerReviews>
+    
+    <dealer yearEstablished="1998">
+        <name>Auto World Ltd.</name>
+        <address>ул. Симеоновско шосе 45, София, България</address>
+        <phone>+359 111 222 333</phone>
+        <website>https://autoworld.bg</website>
+        <specialization>Продажба на нови и употребявани автомобили</specialization>
+        <inventory>
+            <car listingId="C001" yearManufactured="2021">
+                <make>BMW</make>
+                <model>3 Series</model>
+                <price>35 000</price>
+                <mileage>45000</mileage>
+                <fuelType>Бензин</fuelType>
+                <transmission>Автоматична</transmission>
+                <mainPicture>https://images.example.com/bmw3.jpg</mainPicture>
+                <power>190 к.с.</power>
+                <features>
+                    <feature>Кожени седалки</feature>
+                    <feature>Навигация</feature>
+                </features>
+                <carDealer>
+                    <name>Иван Петров</name>
+                    <phone>+359 888 555 444</phone>
+                    <email>ivan.petrov@autoworld.bg</email>
+                </carDealer>
+            </car>
+            <car listingId="C002" yearManufactured="2019">
+                <make>Audi</make>
+                <model>A4</model>
+                <price>30 000</price>
+                <mileage>60000</mileage>
+                <fuelType>Дизел</fuelType>
+                <transmission>Ръчна</transmission>
+                <engineType>2.0 TDI</engineType>
+                <mainPicture>https://images.example.com/audia4.jpg</mainPicture>
+                <power>150 к.с.</power>
+                <features>
+                    <feature>LED фарове</feature>
+                    <feature>Асистент за паркиране</feature>
+                </features>
+            </car>
+        </inventory>
+    </dealer>
+    
+    <dealer yearEstablished="2005">
+        <name>Fast Motors</name>
+        <address>бул. България 120, Пловдив, България</address>
+        <phone>+359 222 333 444</phone>
+        <website>https://fastmotors.bg</website>
+        <specialization>Спортни автомобили</specialization>
+        <inventory>
+            <car listingId="C003" yearManufactured="2023">
+                <make>Mercedes-Benz</make>
+                <model>E-Class</model>
+                <price>85 000</price>
+                <mileage>5000</mileage>
+                <fuelType>Бензин</fuelType>
+                <transmission>Автоматична</transmission>
+                <mainPicture>https://images.example.com/merc.jpg</mainPicture>
+                <features>
+                    <feature>AMG пакет</feature>
+                </features>
+            </car>
+        </inventory>
+    </dealer>
+    
+    <recommendedCars>
+        <recommendedCar listingId="R001" yearManufactured="2020">
+            <make>Toyota</make>
+            <model>RAV4</model>
+            <price>40 000</price>
+            <mileage>30000</mileage>
+            <fuelType>Хибрид</fuelType>
+            <transmission>Автоматична</transmission>
+            <features>
+                <feature>Панорамен покрив</feature>
+                <feature>Адаптивен круиз контрол</feature>
+            </features>
+        </recommendedCar>
+        <recommendedCar listingId="R002" yearManufactured="2018">
+            <make>Volkswagen</make>
+            <model>Golf</model>
+            <price>25 000</price>
+            <mileage>80000</mileage>
+            <fuelType>Дизел</fuelType>
+            <transmission>Ръчна</transmission>
+        </recommendedCar>
+    </recommendedCars>
+</carMarket>

@@ -1,0 +1,275 @@
+.offer-card {
+  overflow: hidden;
+  border-radius: 20px;
+  position: relative;
+  z-index: 1;
+}
+.offer-card:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.1);
+}
+.offer-card > img {
+  transition: transform 0.5s ease;
+  transform-origin: bottom;
+}
+
+.offer-card:hover > img {
+  transform: scale(1.2);
+}
+
+.offer-card-title {
+  transition: padding-right 0.5s ease;
+}
+
+.offer-card:hover > .offer-card-title {
+  padding-right: 0px !important;
+}
+
+.offer-card-image {
+  position: relative;
+  z-index: -1;
+  width: 100%;
+  width: 88.4%;
+  left: 1.1rem;
+  min-height: 220px;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+.offer-card-title h5 {
+  font-size: 1.65rem;
+  font-weight: 500;
+  max-width: 222px;
+  line-height: 1.1;
+}
+
+.offer-card-price {
+  width: 145px;
+  flex: 0 0 145px;
+}
+
+.offer-card-price .fs-4 {
+  line-height: 1;
+  /* font-weight: 700 !important */
+}
+
+.offer-card-price > div {
+  position: relative;
+  background: #db2d2e;
+  margin-top: -50px;
+  border-radius: 50px 0px 0px 50px;
+  width: 100%;
+}
+
+.offer-cart-price-dark > div {
+  background: #db2d2e !important;
+}
+.offer-cart-price-dark > div:before {
+  background-color: #db2d2e !important;
+}
+
+.price-vat-label .fs-6 {
+  line-height: 1.3;
+}
+
+.price-period-label {
+  color: #fff !important;
+  line-height: 1.3;
+  font-size: 0.7rem;
+}
+
+img.card-status {
+  position: absolute;
+  top: 164px;
+  left: 40px;
+  height: 42px;
+  width: auto;
+  transition: transform 0.5s ease;
+}
+
+.offer-card:hover > img.card-status {
+  transform: translateX(-20px);
+}
+
+img.card-status-ribbon {
+  position: absolute;
+  width: 150px;
+  right: 23px;
+  top: -1px;
+  transition: right 0.3s ease;
+}
+
+.card-wrap:hover > img.card-status-ribbon {
+  right: -1px;
+}
+
+.benefits-home img {
+  height: 120px;
+  width: auto;
+}
+
+.badge-used {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  z-index: 2;
+}
+
+.card-wrap {
+  position: relative;
+}
+
+@media (max-width: 1200px) {
+  img.card-status-ribbon {
+    right: -1px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+  img.card-status-ribbon {
+    right: 16px;
+  }
+
+  .offer-cart-price-dark > div {
+    right: -6.3px;
+  }
+}
+
+.specs-list svg {
+  width: auto;
+  height: 17px;
+  fill: #6c6c6c;
+}
+
+.btn-check {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+
+.btn span {
+  color: #ccc;
+}
+
+.svg-fill-default .e,
+.svg-fill-default .f,
+.svg-fill-default .g,
+.svg-fill-default .a,
+.svg-fill-default .c,
+.svg-fill-default .d {
+  fill: #ccc;
+}
+
+.selected .e,
+.selected .f,
+.selected .g,
+.selected .a,
+.selected .c,
+.selected .d {
+  fill: green;
+}
+
+.selected {
+  color: green;
+}
+
+.selected span {
+  color: #4c4c4c;
+  font-weight: 500;
+}
+
+.form-select {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+  -moz-padding-start: calc(0.75rem - 3px);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.ui-page-theme-a .ui-button.ui-button-active,
+html .ui-bar-a .ui-button.ui-button-active,
+html .ui-body-a .ui-button.ui-button-active,
+html body .ui-group-theme-a .ui-button.ui-button-active,
+html head + body .ui-button.ui-button-a.ui-button-active,
+.ui-page-theme-a .ui-checkboxradio-checked .ui-icon,
+html .ui-bar-a .ui-checkboxradio-checked .ui-icon,
+html .ui-body-a .ui-checkboxradio-checked .ui-icon,
+html body .ui-group-theme-a .ui-checkboxradio-checked .ui-icon,
+.ui-button-a.ui-checkboxradio-checked.ui-button .ui-icon,
+.ui-page-theme-a .ui-controlgroup-horizontal .ui-checkboxradio-checked,
+html .ui-bar-a .ui-controlgroup-horizontal .ui-checkboxradio-checked,
+html .ui-body-a .ui-controlgroup-horizontal .ui-checkboxradio-checked,
+html
+  body
+  .ui-group-theme-a
+  .ui-controlgroup-horizontal
+  .ui-checkboxradio-checked,
+html
+  body
+  .ui-group-theme-a.ui-controlgroup-horizontal
+  .ui-checkboxradio-checked,
+.ui-controlgroup-horizontal .ui-button.ui-button-a.ui-checkboxradio-checked,
+.ui-page-theme-a .ui-flipswitch-active,
+html .ui-bar-a .ui-flipswitch-active,
+html .ui-body-a .ui-flipswitch-active,
+html body .ui-group-theme-a .ui-flipswitch-active,
+html body .ui-flipswitch.ui-bar-a.ui-flipswitch-active,
+.ui-page-theme-a .ui-slider-track .ui-button-active,
+html .ui-bar-a .ui-slider-track .ui-button-active,
+html .ui-body-a .ui-slider-track .ui-button-active,
+html body .ui-group-theme-a .ui-slider-track .ui-button-active,
+html body div.ui-slider-track.ui-body-a .ui-button-active,
+.ui-page-theme-a .ui-accordion-header-active,
+.ui-page-theme-a .ui-accordion-header.ui-state-active,
+html .ui-body-a .ui-accordion-header-active,
+html .ui-body-a .ui-accordion-header.ui-state-active {
+  background-color: rgb(110 110 110 / 25%);
+  border-color: rgb(110 110 110 / 25%);
+  color: #fff;
+  text-shadow: 0 1px 0 #6e6e6e;
+}
+
+.ui-page-theme-a .ui-slider-track .ui-btn-active {
+  background-color: #6e6e6e40 !important;
+}
+
+.ui-slider-bg .ui-btn-active {
+  background-color: #fff !important;
+}
+
+.green-text-dark {
+  color: #db2d2e !important;
+  font-size: 22px !important;
+}
+
+.green-text {
+  font-size: 22px !important;
+  color: #db2d2e !important;
+}
+
+.green-icon {
+  fill: #db2d2e !important;
+}
+
+.dark-green-icon {
+  fill: #db2d2e !important;
+}
+
+.ui-page-theme-a {
+  text-shadow: none !important;
+}
