@@ -12,6 +12,18 @@
     <!-- The template for the root node -->
     <xsl:template match="/">
         <html>
+            <head>
+                <style>
+                    .custom-card {
+                        border-radius: 10px;
+                        padding: 10px;
+                        background-color: #f9f9f9;
+                    }
+                    .offer-card-image {
+                        border-radius: 10px;
+                    }
+                </style>
+            </head>
             <body>
                 <div
                     class="px-4 py-3 mt-4 mb-1 d-flex gap-3 flex-wrap col-12 col-lg-9 mx-auto justify-content-center"
@@ -71,7 +83,7 @@
                                     ">
                             
                             <div class="col-12 col-sm-6 col-lg-4 py-3">
-                                <div class="card-wrap">
+                                <div class="card-wrap custom-card">
                                     <div class="offer-card">
 
                                         <xsl:choose>
